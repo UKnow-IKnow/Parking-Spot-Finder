@@ -1,4 +1,4 @@
-package com.example.parkingspotfinder.screen
+package com.example.parkingspotfinder.util
 
 import com.google.maps.android.compose.MapProperties
 
