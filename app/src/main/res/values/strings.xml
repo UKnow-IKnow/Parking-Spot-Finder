@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ParkingSpotFinder</string>
+    <string name="toggle_fallout_Map">Toggle Fallout Map></string>
 </resources>
