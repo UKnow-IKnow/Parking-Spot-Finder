@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.parkingspotfinder.R
 import com.example.parkingspotfinder.ui.theme.viewModels.MapsViewModel
+import com.example.parkingspotfinder.util.MapEvent
 import com.google.android.gms.maps.UiSettings
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapUiSettings
@@ -29,7 +30,9 @@ fun MapScreen(
     Scaffold(
         scaffoldState = scaffoldState,
         floatingActionButton = {
-            FloatingActionButton(onClick = { /*TODO*/ }) {
+            FloatingActionButton(onClick = {
+                viewModel.onEvent(MapEvent.ToggleFalloutMap)
+            }) {
                 Icon(
                     imageVector = if (viewModel.state.isFalloutMap) {
                         Icons.Default.ToggleOff

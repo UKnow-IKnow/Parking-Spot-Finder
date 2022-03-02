@@ -1,5 +1,6 @@
 package com.example.parkingspotfinder.util
 
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.maps.android.compose.MapProperties
 
 
