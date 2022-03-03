@@ -16,8 +16,11 @@ import com.example.parkingspotfinder.R
 import com.example.parkingspotfinder.ui.theme.viewModels.MapsViewModel
 import com.example.parkingspotfinder.util.MapEvent
 import com.google.android.gms.maps.UiSettings
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapUiSettings
+import com.google.maps.android.compose.Marker
 
 @Composable
 fun MapScreen(
@@ -48,8 +51,28 @@ fun MapScreen(
             properties = viewModel.state.properties,
             uiSettings = uiSettings,
             onMapLongClick = {
-
+                viewModel.onEvent(MapEvent.OnMapLongClick(it))
             }
-        )
+        ) {
+            viewModel.state.parkingSpot.forEach { spot ->
+                Marker(
+                    position = LatLng(spot.lat, spot.lng),
+                    title ="Parking spot (${spot.lat}, ${spot.lng})",
+                    snippet = "Long click to delete",
+                    onInfoWindowLongClick = {
+                        viewModel.onEvent(
+                            MapEvent.OnInfoWindowLongClick(spot)
+                        )
+                    },
+                    onClick = {
+                        it.showInfoWindow()
+                        true
+                    },
+                    icon = BitmapDescriptorFactory.defaultMarker(
+                        BitmapDescriptorFactory.HUE_VIOLET
+                    )
+                )
+            }
+        }
     }
 }
