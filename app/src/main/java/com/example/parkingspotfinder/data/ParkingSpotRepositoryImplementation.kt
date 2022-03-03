@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class ParkingSpotRepositoryImplementation(
-    private val dao: ParkingSpotDao
+    private var dao: ParkingSpotDao
 ): ParkingSpotRepository {
     override suspend fun insertParkingSpot(spot: ParkingSpot) {
         dao.insertParkingSpot(spot.toParkingSpotTable())
