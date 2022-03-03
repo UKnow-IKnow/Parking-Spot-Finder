@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [ParkingSpot::class],
+    entities = [ParkingSpotTable::class],
     version = 1
 )
 abstract class Database: RoomDatabase() {

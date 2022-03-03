@@ -7,11 +7,11 @@ import kotlinx.coroutines.flow.Flow
 interface ParkingSpotDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertParkingSpot(spot: ParkingSpot)
+    suspend fun insertParkingSpot(spot: ParkingSpotTable)
 
     @Delete
-    suspend fun deleteParkingSpot(spot: ParkingSpot)
+    suspend fun deleteParkingSpot(spot : ParkingSpotTable)
 
     @Query("SELECT * FROM ParkingSpot_table")
-    fun getParkingSpot(): Flow<List<ParkingSpot>>
+    fun getParkingSpot(): Flow<List<ParkingSpotTable>>
 }
